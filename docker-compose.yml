@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./api
+    command: npm run dev
+    volumes:
+      - ./api/src:/usr/src/app/src
+    restart: unless-stopped
+    ports:
+      - "80:3001"
+    environment:
+      - PORT=3001
+      - HOST=http://realworld.com
+      - MONGO_URL=mongodb://api_db:27017/api
+    depends_on:
+      - api_db
+
+  api_db:
+    image: mongo:4.4.6
+    volumes:
+      - mongodb_api:/data/db
+
+  frontend:
+    build: ./frontend
+    container_name: docker-frontend
+    volumes:
+      - ./frontend:/frontend:delegated
+      - /node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - api_db
+
+volumes:
+  mongodb_api:
