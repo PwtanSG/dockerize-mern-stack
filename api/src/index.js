@@ -14,7 +14,7 @@ const User = mongoose.model('User', {
 });
 
 app.get("/test", (req, res) => {
-  res.send("Our api server is working correctly  ..............");
+  res.send("Api server is working correctly  ..............");
 });
 
 app.get("/getAll", async (req, res) => {

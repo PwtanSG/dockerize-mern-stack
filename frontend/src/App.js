@@ -8,7 +8,7 @@ function App() {
   const [result, setResult] = useState('loading ....');
   const getHealth = async () => {
     const response = await axios.get('http://localhost/test');
-    console.log(response.data)
+    // console.log(response.data)
     setResult(response.data)
   }
   getHealth();
@@ -18,7 +18,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {result} <code>src/App.js</code> and save to r2eload.
+          {result} <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
