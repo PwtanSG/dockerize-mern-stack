@@ -1,9 +1,10 @@
-# Dockerizing mern fullstack 
+# Basic Dockerizing mern fullstack for development with hot reload 
 
 ## Frontend - React JS
-## Backend - Node  JS
+## Backend - Node JS
 ## Database - MongoDb
 
 In this project directory, you can run:
-### `docker-compose build`
-### `docker-compose up`
+### OS ubuntu - 22.04 LTS
+### `sudo docker-compose build`
+### `sudo docker-compose up`
