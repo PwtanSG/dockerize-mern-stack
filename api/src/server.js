@@ -6,6 +6,8 @@ const { connectDb } = require("./helpers/db");
 const app = express();
 var cors = require('cors');
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
 
 // Creating DB health Schema 
 const healthSchema = new mongoose.Schema({ 
@@ -44,12 +46,10 @@ app.get("/testapi", (req, res) => {
 //   res.status(200).send(record.name)
 // })
 
-
-app.get("/testdb", async (req, res) => {
-  // let result = await User.find({});
+app.post("/testdbrw", async (req, res) => {
   var new_db_health = new Healthdb({
-    description: 'Test r/w db',
-    remarks: 'test'  
+    description: req.body.description,
+    remarks: req.body.remarks  
   })
   await new_db_health.save(function (err, result) {
     if (err) {
@@ -61,7 +61,7 @@ app.get("/testdb", async (req, res) => {
       res.status(200).send(result)
     }
   })
-});
+})
 
 app.get("/getAllDbhealth", async (req, res) => {
   let result = await Healthdb.find({});
