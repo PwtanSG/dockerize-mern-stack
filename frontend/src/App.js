@@ -12,7 +12,7 @@ function App() {
     if (!rendered.current) {
       const getHealth = async () => {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/testapi`
+          `${process.env.REACT_APP_API_URL}/api/health/testapi`
         );
         // console.log(response.data)
         setResult(response.data);
@@ -32,7 +32,7 @@ function App() {
         remarks: "test",
       };
       const resp = await axios.post(
-        `${process.env.REACT_APP_API_URL}/testdbrw`,
+        `${process.env.REACT_APP_API_URL}/api/health/testdbrw`,
         data
       );
       resp.status === 200 ? setDbState(true) : setDbState(false);
