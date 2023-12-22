@@ -1,5 +1,5 @@
 {
   "verbose": false,
   "watch": ["src"],
-  "exec": "node src/index.js"
+  "exec": "node src/server.js"
 }

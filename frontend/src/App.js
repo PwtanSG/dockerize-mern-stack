@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     if(!rendered.current){
       const getHealth = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}test`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/testapi`);
         // console.log(response.data)
         setResult(response.data)
       }

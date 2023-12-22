@@ -17,8 +17,8 @@ const healthSchema = new mongoose.Schema({
 // Health model 
 const Healthdb = mongoose.model('Healthdb', healthSchema); 
 
-app.get("/test", (req, res) => {
-  res.send("Api server is working correctly  ..............");
+app.get("/testapi", (req, res) => {
+  res.send("Api server is working correctly.");
 });
 
 
