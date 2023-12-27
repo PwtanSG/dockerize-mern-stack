@@ -48,11 +48,11 @@ function App() {
           API_URL :{process.env.REACT_APP_API_URL} {result}
         </p>
         <p>
-          DB : R/W Test {dbState ? "Pass" : ""}
+          DB : R/W Test {dbState ? "Pass!!" : ""}
           <button onClick={handleTestDb}>Test DB</button>
         </p>
         <p>
-          <code>src/App.js</code> and... save to hot reload.
+          <code>src/App.js</code> and ... save to hot re-load.
         </p>
         <a
           className="App-link"

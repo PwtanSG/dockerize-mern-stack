@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  frontend:
+    command: npm run start
+    volumes:
+      - ./frontend:/frontend:delegated
+      - /node_modules
