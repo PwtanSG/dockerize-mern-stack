@@ -15,9 +15,10 @@ function App() {
           `${process.env.REACT_APP_API_URL}/api/health/testapi`
         );
         // console.log(response.data)
-        setResult(response.data);
+        response.status === 200 ? setResult('okay'):setResult('something goes wrong...')
+        // setResult(response.data);
       };
-      getHealth();
+      getHealth()
     }
     return () => {
       rendered.current = true;
@@ -45,14 +46,14 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          API_URL :{process.env.REACT_APP_API_URL} {result}
+          API_URL Test:{result}
         </p>
         <p>
           DB : R/W Test {dbState ? "Pass!!" : ""}
           <button onClick={handleTestDb}>Test DB</button>
         </p>
         <p>
-          <code>src/App.js</code> and ... save to hot re-load.
+          <code>src/App.js</code> and ... save to hot reload.
         </p>
         <a
           className="App-link"

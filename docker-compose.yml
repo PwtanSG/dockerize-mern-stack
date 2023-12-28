@@ -22,20 +22,20 @@ services:
 
   frontend:
     build: ./frontend
+    command: serve -s build -l 3000
     container_name: docker-frontend
     # volumes:
     #   - ./frontend:/frontend:delegated
     #   - /node_modules
     ports:
       - 3000:3000
-    command: serve -s build -l 3000
     environment:
       - WDS_SOCKET_HOST=127.0.0.1
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
       - REACT_APP_API_URL=http://localhost:3001
     depends_on:
-      - api_db
+      - api
 
 volumes:
   mongodb_api:
