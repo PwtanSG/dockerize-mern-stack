@@ -3,7 +3,9 @@
 ## Frontend - React JS
 ## Backend - Node JS
 ## Database - MongoDb
-## note: npm install for frontend before docker
+
+## git clone 
+## npm install for frontend before docker
 
 In this project directory, you can run:
 ### OS ubuntu - 22.04 LTS
@@ -14,4 +16,5 @@ In this project directory, you can run:
 ### `sudo docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build`
 
 ### Production
+### frontend serve static build
 ### `sudo docker-compose up --build`
