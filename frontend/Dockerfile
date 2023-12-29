@@ -6,23 +6,21 @@ FROM node:14-alpine
 # Set the working directory
 WORKDIR /frontend
 
-#COPY application files
-COPY public/ ./public
-COPY src/ ./src
-
 # Copy app dependencies to container
-# COPY ./package*.json ./
 COPY package*.json ./
-
-# Add `/app/node_modules/.bin` to $PATH
-# ENV PATH /app/node_modules/.bin:$PATH
 
 # Install dependencies
 RUN npm install
 
+# Copy application files to container - after npm i
+COPY public/ ./public
+COPY src/ ./src
+COPY .env ./
+
 # Deploy app for local development
 #CMD npm start
 
+# Build app for prod
 RUN npm run build
 
 RUN npm install -g serve
